@@ -86,16 +86,6 @@ export function SiteHeader() {
                     <span className="font-medium">{link.label}</span>
                   </Link>
                 ))}
-
-                {/* Visit NepalReforms Button */}
-                <div className="pt-4 border-t">
-                  <Button asChild variant="outline" className="w-full justify-start gap-3 bg-transparent">
-                    <a href="https://nepalreforms.com" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4" />
-                      {t("Visit NepalReforms", "NepalReforms पर जाएँ")}
-                    </a>
-                  </Button>
-                </div>
               </div>
             </SheetContent>
           </Sheet>
