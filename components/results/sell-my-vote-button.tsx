@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Card } from "@/components/ui/card"
 import { useLanguage } from "@/lib/language-context"
+import { X } from "lucide-react"
 
 type Offer = {
   id: string
@@ -59,28 +60,22 @@ export default function SellMyVoteButton() {
   const [open, setOpen] = useState(false)
   const [selectedId, setSelectedId] = useState<string>("")
   const [message, setMessage] = useState<string>("")
+  const [snarkOpen, setSnarkOpen] = useState(false)
 
   const onDoNotSell = () => {
     setMessage(t("🎉 Congratulations, you still have integrity!", "🎉 बधाई हो, आपके अंदर अभी भी ईमानदारी है!"))
-    setTimeout(() => {
-      setOpen(false)
-      setMessage("")
-      setSelectedId("")
-    }, 18000)
+    setOpen(false)
+    setSnarkOpen(true)
   }
 
   const onConfirmSale = () => {
     if (!selectedId) {
-      setMessage(t("Choose your 'reward' before selling your soul.", "अपना 'इनाम' चुनें, फिर सौदा करें (मज़ाक है)."))
       return
     }
     const snark = SNARK[selectedId]
     setMessage(t(snark.en, snark.hi))
-    setTimeout(() => {
-      setOpen(false)
-      setMessage("")
-      setSelectedId("")
-    }, 23000)
+    setOpen(false)
+    setSnarkOpen(true)
   }
 
   return (
@@ -126,7 +121,7 @@ export default function SellMyVoteButton() {
                       className="peer sr-only"
                     />
                     <div className="flex items-center gap-3 rounded-md border border-border bg-card px-3 py-2 transition-colors hover:bg-muted/50 peer-checked:border-forest-600 peer-checked:bg-forest-600/5">
-                      <span className="text-xl" aria-hidden>
+                      <span className="text-xl" aria-hidden="true">
                         {offer.icon}
                       </span>
                       <span className="text-sm font-medium text-pretty">{label}</span>
@@ -136,12 +131,6 @@ export default function SellMyVoteButton() {
               })}
             </div>
           </Card>
-
-          {message && (
-            <div className="mt-4 text-center text-base font-semibold" aria-live="polite">
-              {message}
-            </div>
-          )}
 
           <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between mt-4">
             <Button variant="outline" onClick={onDoNotSell} className="w-full sm:w-auto">
@@ -167,6 +156,43 @@ export default function SellMyVoteButton() {
           <p className="mt-3 text-center text-xs text-muted-foreground">
             {t("Satire. Never sell your vote.", "यह व्यंग्य है। कभी भी अपना वोट न बेचें।")}
           </p>
+        </DialogContent>
+      </Dialog>
+
+      {/* Result/SNARK popup dialog */}
+      <Dialog
+        open={snarkOpen}
+        onOpenChange={(v) => {
+          setSnarkOpen(v)
+          if (!v) {
+            // Reset after closing the result popup
+            setMessage("")
+            setSelectedId("")
+          }
+        }}
+      >
+        <DialogContent className="sm:max-w-lg">
+          {/* Close button top-right */}
+          <button
+            type="button"
+            onClick={() => setSnarkOpen(false)}
+            className="absolute right-4 top-4 rounded-md p-1 text-muted-foreground hover:text-foreground hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring"
+            aria-label={t("Close", "बंद करें")}
+          >
+            <X className="h-4 w-4" />
+          </button>
+
+          <DialogHeader>
+            <DialogTitle className="text-center">
+              {t("Your Choice, Your Consequence", "आपकी पसंद, उसका परिणाम")}
+            </DialogTitle>
+          </DialogHeader>
+
+          <div className="mt-2 text-center">
+            <p className="text-lg md:text-xl font-extrabold leading-relaxed">
+              {message}
+            </p>
+          </div>
         </DialogContent>
       </Dialog>
     </div>

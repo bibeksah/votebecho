@@ -445,7 +445,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
                   filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))",
                 }}
               >
-                {t("Powered by NepalReforms", "NepalReforms द्वारा संचालित")}
+                {t("Powered by Nexalaris Tech", "Nexalaris Tech द्वारा संचालित")}
               </p>
             </div>
           </div>
