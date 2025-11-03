@@ -8,9 +8,9 @@ import { useLanguage } from "@/lib/language-context"
 interface Badge {
   id: string
   name: string
-  nameNp: string
+  nameHi: string
   description: string
-  descriptionNp: string
+  descriptionHi: string
   icon: React.ReactNode
   earned: boolean
 }
@@ -26,13 +26,13 @@ export function BadgeDisplay({ badges }: BadgeDisplayProps) {
     <div className="bg-card rounded-xl border border-border shadow-md p-6 space-y-4">
       <h3 className="text-xl font-bold flex items-center gap-2">
         <Award className="w-5 h-5 text-ochre-600" />
-        {t("Your Achievements", "तपाईंको उपलब्धिहरू")}
+  {t("Your Achievements", "आपकी उपलब्धियाँ")}
       </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {badges.map((badge) => {
-          const displayName = language === "np" ? badge.nameNp : badge.name
-          const displayDescription = language === "np" ? badge.descriptionNp : badge.description
+          const displayName = language === "hi" ? badge.nameHi : badge.name
+          const displayDescription = language === "hi" ? badge.descriptionHi : badge.description
 
           return (
             <div
@@ -67,27 +67,27 @@ export function getBadges(hasCalculated: boolean, hasShared: boolean, hasVisited
     {
       id: "informed-voter",
       name: "Informed Voter",
-      nameNp: "सूचित मतदाता",
+  nameHi: "सूचित मतदाता",
       description: "Completed governance cost calculation",
-      descriptionNp: "शासन लागत गणना पूरा गर्नुभयो",
+  descriptionHi: "शासन लागत गणना पूरा किया",
       icon: <Award className="w-8 h-8" />,
       earned: hasCalculated,
     },
     {
       id: "change-maker",
       name: "Change Maker",
-      nameNp: "परिवर्तन निर्माता",
+  nameHi: "परिवर्तन निर्माता",
       description: "Shared results with others",
-      descriptionNp: "अरूसँग नतिजा साझा गर्नुभयो",
+  descriptionHi: "दूसरों के साथ परिणाम साझा किया",
       icon: <Share2 className="w-8 h-8" />,
       earned: hasShared,
     },
     {
       id: "wise-citizen",
       name: "Wise Citizen",
-      nameNp: "बुद्धिमान नागरिक",
+  nameHi: "बुद्धिमान नागरिक",
       description: "Learned to evaluate candidates",
-      descriptionNp: "उम्मेदवारहरूको मूल्याङ्कन गर्न सिक्नुभयो",
+  descriptionHi: "उम्मीदवारों का मूल्यांकन करना सीखा",
       icon: <BookOpen className="w-8 h-8" />,
       earned: hasVisitedEvaluate,
     },

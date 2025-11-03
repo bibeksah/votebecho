@@ -8,24 +8,24 @@ import { CheckCircle2, Circle } from "lucide-react"
 interface EvaluationItem {
   id: string
   text: string
-  textNp: string
+  textHi: string
 }
 
 interface EvaluationSectionProps {
   title: string
-  titleNp: string
+  titleHi: string
   description: string
-  descriptionNp: string
+  descriptionHi: string
   items: EvaluationItem[]
   icon: React.ReactNode
-  language: "en" | "np"
+  language: "en" | "hi"
 }
 
 export function EvaluationSection({
   title,
-  titleNp,
+  titleHi,
   description,
-  descriptionNp,
+  descriptionHi,
   items,
   icon,
   language,
@@ -44,8 +44,8 @@ export function EvaluationSection({
     })
   }
 
-  const displayTitle = language === "np" ? titleNp : title
-  const displayDescription = language === "np" ? descriptionNp : description
+  const displayTitle = language === "hi" ? titleHi : title
+  const displayDescription = language === "hi" ? descriptionHi : description
 
   return (
     <div className="bg-card rounded-xl border border-border shadow-md p-6 md:p-8 space-y-6 hover:shadow-lg transition-shadow">
@@ -64,7 +64,7 @@ export function EvaluationSection({
       <div className="space-y-3 pl-16">
         {items.map((item) => {
           const isChecked = checkedItems.has(item.id)
-          const displayText = language === "np" ? item.textNp : item.text
+          const displayText = language === "hi" ? item.textHi : item.text
 
           return (
             <button
@@ -89,7 +89,7 @@ export function EvaluationSection({
       <div className="pl-16">
         <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
           <span>
-            {language === "np" ? "प्रगति" : "Progress"}: {checkedItems.size}/{items.length}
+            {language === "hi" ? "प्रगति" : "Progress"}: {checkedItems.size}/{items.length}
           </span>
           <span>{Math.round((checkedItems.size / items.length) * 100)}%</span>
         </div>

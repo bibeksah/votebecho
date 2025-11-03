@@ -1,14 +1,16 @@
 "use client"
 
 import { useLanguage } from "@/lib/language-context"
-import type { CostBreakdown } from "@/types/survey"
 import { Download, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useRef, useState } from "react"
 
 interface ShareCardGeneratorProps {
   totalCost: number
-  breakdown: CostBreakdown
+  breakdown: {
+    categories: Array<{ name: string; amount: number }>
+    summary: string
+  }
   userName?: string
 }
 
@@ -19,8 +21,8 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
 
   const shareText =
     language === "en"
-      ? `Last year I paid Rs. ${totalCost.toLocaleString("en-NP")} extra due to bad governance. Know yours now by visiting sellmyvote.nepalreforms.com. If we are still selling our vote for some chump change it's time to wake up. #KnowYourVoteWorth`
-      : `गत वर्ष खराब शासनले मलाई रु. ${totalCost.toLocaleString("en-NP")} थप खर्च गर्यो। आफ्नो गणना गर्नुहोस् sellmyvote.nepalreforms.com मा। यदि हामी अझै पनि केही पैसाको लागि आफ्नो भोट बेच्दैछौं भने यो ब्यूँझने समय हो। #KnowYourVoteWorth`
+      ? `Last year I paid Rs. ${totalCost.toLocaleString("en-NP")} extra due to bad governance. Know yours now by visiting votebecho.com. If we are still selling our vote for some chump change it's time to wake up. #KnowYourVoteWorth`
+      : `पिछले साल खराब शासन के कारण मैंने अतिरिक्त रु. ${totalCost.toLocaleString("en-NP")} चुकाए। अपना हिसाब votebecho.com पर अभी करें। अगर हम अभी भी कुछ पैसों में अपना वोट बेच रहे हैं, तो जागने का समय आ गया है। #KnowYourVoteWorth`
 
   const generateImageBlob = async (): Promise<Blob | null> => {
     if (!cardRef.current) return null
@@ -65,7 +67,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
   const handleDownloadImage = async () => {
     const blob = await generateImageBlob()
     if (!blob) {
-      alert(t("Failed to generate image. Please try again.", "छवि उत्पन्न गर्न असफल। कृपया पुन: प्रयास गर्नुहोस्।"))
+  alert(t("Failed to generate image. Please try again.", "छवि बनाने में विफल। कृपया फिर से प्रयास करें।"))
       return
     }
 
@@ -79,7 +81,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
   const handleShareImage = async () => {
     const blob = await generateImageBlob()
     if (!blob) {
-      alert(t("Failed to generate image. Please try again.", "छवि उत्पन्न गर्न असफल। कृपया पुन: प्रयास गर्नुहोस्।"))
+  alert(t("Failed to generate image. Please try again.", "छवि बनाने में विफल। कृपया फिर से प्रयास करें।"))
       return
     }
 
@@ -89,7 +91,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
 
       const shareData = {
         files: [file],
-        title: t("My Governance Cost Report", "मेरो शासन लागत रिपोर्ट"),
+  title: t("My Governance Cost Report", "मेरी शासन लागत रिपोर्ट"),
         text: shareText,
       }
 
@@ -111,7 +113,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
         alert(
           t(
             "Your browser doesn't support direct image sharing. The image will be downloaded instead.",
-            "तपाईंको ब्राउजरले प्रत्यक्ष छवि साझेदारी समर्थन गर्दैन। छवि डाउनलोड गरिनेछ।",
+            "आपका ब्राउज़र सीधे छवि साझा करने का समर्थन नहीं करता। इसके बजाय छवि डाउनलोड की जाएगी।",
           ),
         )
         handleDownloadImage()
@@ -121,7 +123,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
       alert(
         t(
           "Your browser doesn't support direct sharing. The image will be downloaded instead.",
-          "तपाईंको ब्राउजरले प्रत्यक्ष साझेदारी समर्थन गर्दैन। छवि डाउनलोड गरिनेछ।",
+          "आपका ब्राउज़र सीधे साझा करने का समर्थन नहीं करता। इसके बजाय छवि डाउनलोड की जाएगी।",
         ),
       )
       handleDownloadImage()
@@ -129,7 +131,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
   }
 
   const handleShare = async (platform: "facebook" | "twitter" | "whatsapp" | "instagram") => {
-    const url = "https://sellmyvote.nepalreforms.com"
+  const url = "https://votebecho.com"
     const encodedText = encodeURIComponent(shareText)
     const encodedUrl = encodeURIComponent(url)
 
@@ -138,7 +140,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
       alert(
         t(
           "Image downloaded! Now open Instagram and post it from your gallery.",
-          "छवि डाउनलोड भयो! अब Instagram खोल्नुहोस् र आफ्नो ग्यालरीबाट पोस्ट गर्नुहोस्।",
+          "छवि डाउनलोड हो गई! अब Instagram खोलें और अपनी गैलरी से इसे पोस्ट करें।",
         ),
       )
       return
@@ -158,7 +160,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
       alert(
         t(
           "Image downloaded! After sharing the text, you can attach the downloaded image.",
-          "छवि डाउनलोड भयो! पाठ साझा गरेपछि, तपाईं डाउनलोड गरिएको छवि संलग्न गर्न सक्नुहुन्छ।",
+          "छवि डाउनलोड हो गई! पाठ साझा करने के बाद, आप डाउनलोड की गई छवि संलग्न कर सकते हैं।",
         ),
       )
     }, 500)
@@ -179,8 +181,8 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
 
       doc.setFontSize(12)
       let yPos = userName ? 50 : 40
-      Object.entries(breakdown.categories).forEach(([category, amount]) => {
-        doc.text(`${category}: Rs. ${amount.toLocaleString("en-NP")}`, 20, yPos)
+      breakdown.categories.forEach(({ name, amount }) => {
+        doc.text(`${name}: Rs. ${amount.toLocaleString("en-NP")}`, 20, yPos)
         yPos += 10
       })
 
@@ -354,7 +356,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
                   filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))",
                 }}
               >
-                {t("This is what bad governance cost me last year.", "यो गत वर्ष खराब शासनले मलाई खर्च गरेको हो।")}
+                {t("This is what bad governance cost me last year.", "पिछले वर्ष खराब शासन ने मुझे इतना खर्च कराया।")}
               </p>
               <p
                 style={{
@@ -364,7 +366,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
                   filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))",
                 }}
               >
-                {t("Calculate yours at:", "आफ्नो गणना गर्नुहोस्:")}
+                {t("Calculate yours at:", "अपना हिसाब करें:")}
               </p>
             </div>
 
@@ -387,7 +389,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
                   color: "#2C5530",
                 }}
               >
-                sellmyvote.nepalreforms.com
+                votebecho.com
               </p>
             </div>
 
@@ -443,7 +445,7 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
                   filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))",
                 }}
               >
-                {t("Powered by NepalReforms", "नेपाल-रिफर्म्स द्वारा संचालित")}
+                {t("Powered by NepalReforms", "NepalReforms द्वारा संचालित")}
               </p>
             </div>
           </div>
@@ -458,69 +460,25 @@ export function ShareCardGenerator({ totalCost, breakdown, userName }: ShareCard
           disabled={isGenerating}
         >
           <Download className="w-4 h-4" />
-          {isGenerating ? t("Generating...", "उत्पन्न गर्दै...") : t("Download Image", "छवि डाउनलोड गर्नुहोस्")}
+          {isGenerating ? t("Generating...", "बना रहा है...") : t("Download Image", "छवि डाउनलोड करें")}
         </Button>
 
         <Button onClick={handleShareImage} variant="outline" className="gap-2 bg-transparent" disabled={isGenerating}>
           <Share2 className="w-4 h-4" />
-          {t("Share Image", "छवि साझा गर्नुहोस्")}
+          {t("Share Image", "छवि साझा करें")}
         </Button>
-      </div>
-
-      <div className="space-y-3">
-        <p className="text-sm font-medium text-center" style={{ color: "#7D8491" }}>
-          {t("Share on social media:", "सामाजिक मिडियामा साझा गर्नुहोस्:")}
-        </p>
-
-        <div className="grid grid-cols-2 gap-3">
-          <Button
-            onClick={() => handleShare("facebook")}
-            className="gap-2 bg-[#1877F2] hover:bg-[#1877F2]/90"
-            disabled={isGenerating}
-          >
-            <Share2 className="w-4 h-4" />
-            Facebook
-          </Button>
-
-          <Button
-            onClick={() => handleShare("twitter")}
-            className="gap-2 bg-[#1DA1F2] hover:bg-[#1DA1F2]/90"
-            disabled={isGenerating}
-          >
-            <Share2 className="w-4 h-4" />
-            Twitter
-          </Button>
-
-          <Button
-            onClick={() => handleShare("whatsapp")}
-            className="gap-2 bg-[#25D366] hover:bg-[#25D366]/90"
-            disabled={isGenerating}
-          >
-            <Share2 className="w-4 h-4" />
-            WhatsApp
-          </Button>
-
-          <Button
-            onClick={() => handleShare("instagram")}
-            className="gap-2 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90"
-            disabled={isGenerating}
-          >
-            <Share2 className="w-4 h-4" />
-            Instagram
-          </Button>
-        </div>
       </div>
 
       <Button
         onClick={() => {
           navigator.clipboard.writeText(shareText)
-          alert(t("Copied to clipboard!", "क्लिपबोर्डमा प्रतिलिपि गरियो!"))
+          alert(t("Copied to clipboard!", "क्लिपबोर्ड पर कॉपी हो गया!"))
         }}
         variant="outline"
         className="w-full gap-2 bg-transparent"
       >
         <Share2 className="w-4 h-4" />
-        {t("Copy Share Text", "साझा पाठ प्रतिलिपि गर्नुहोस्")}
+  {t("Copy Share Text", "साझा पाठ कॉपी करें")}
       </Button>
     </div>
   )

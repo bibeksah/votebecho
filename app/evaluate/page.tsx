@@ -18,146 +18,146 @@ export default function EvaluatePage() {
   const evaluationSections = [
     {
       title: "Check Their Track Record",
-      titleNp: "उनीहरूको ट्र्याक रेकर्ड जाँच गर्नुहोस्",
+      titleHi: "उनका ट्रैक रिकॉर्ड की जाँच करें",
       description: "Past performance is the best indicator of future results",
-      descriptionNp: "विगतको प्रदर्शन भविष्यको नतिजाको उत्तम सूचक हो",
+      descriptionHi: "भविष्य के परिणामों का सबसे अच्छा संकेतक पिछला प्रदर्शन है",
       icon: <ClipboardCheck className="w-6 h-6" />,
       items: [
         {
           id: "track-1",
           text: "Review their past performance in previous roles or positions",
-          textNp: "अघिल्लो भूमिका वा पदहरूमा उनीहरूको विगतको प्रदर्शन समीक्षा गर्नुहोस्",
+          textHi: "पिछले पदों/भूमिकाओं में उनके प्रदर्शन की समीक्षा करें",
         },
         {
           id: "track-2",
           text: "Compare promises made versus promises delivered",
-          textNp: "गरिएका वाचाहरू र पूरा गरिएका वाचाहरूको तुलना गर्नुहोस्",
+          textHi: "किए गए वादों बनाम निभाए गए वादों की तुलना करें",
         },
         {
           id: "track-3",
           text: "Check their attendance and participation records in meetings",
-          textNp: "बैठकहरूमा उनीहरूको उपस्थिति र सहभागिता रेकर्ड जाँच गर्नुहोस्",
+          textHi: "बैठकों में उनकी उपस्थिति और सहभागिता रिकॉर्ड जाँचें",
         },
         {
           id: "track-4",
           text: "Look for concrete achievements and measurable outcomes",
-          textNp: "ठोस उपलब्धिहरू र मापनयोग्य परिणामहरू खोज्नुहोस्",
+          textHi: "ठोस उपलब्धियाँ और मापने योग्य परिणाम तलाशें",
         },
       ],
     },
     {
       title: "Evaluate Their Platform",
-      titleNp: "उनीहरूको मञ्च मूल्याङ्कन गर्नुहोस्",
+      titleHi: "उनके प्लैटफ़ॉर्म/एजेंडा का मूल्यांकन करें",
       description: "Distinguish between vague promises and actionable plans",
-      descriptionNp: "अस्पष्ट वाचाहरू र कार्ययोग्य योजनाहरू बीच भेद गर्नुहोस्",
+      descriptionHi: "अस्पष्ट वादों और लागू होने वाली योजनाओं में अंतर करें",
       icon: <Target className="w-6 h-6" />,
       items: [
         {
           id: "platform-1",
           text: "Look for specific, measurable goals instead of vague promises",
-          textNp: "अस्पष्ट वाचाहरूको सट्टा विशिष्ट, मापनयोग्य लक्ष्यहरू खोज्नुहोस्",
+          textHi: "अस्पष्ट वादों की जगह विशिष्ट, मापने योग्य लक्ष्य देखें",
         },
         {
           id: "platform-2",
           text: "Ask about budget allocation and implementation timelines",
-          textNp: "बजेट विनियोजन र कार्यान्वयन समयरेखाको बारेमा सोध्नुहोस्",
+          textHi: "बजट आवंटन और कार्यान्वयन समय-सीमा के बारे में पूछें",
         },
         {
           id: "platform-3",
           text: "Assess relevance to your community's actual needs",
-          textNp: "तपाईंको समुदायको वास्तविक आवश्यकताहरूसँग सान्दर्भिकता मूल्याङ्कन गर्नुहोस्",
+          textHi: "आपके समुदाय की वास्तविक जरूरतों से मेल का आकलन करें",
         },
         {
           id: "platform-4",
           text: "Check if their plans are realistic and achievable",
-          textNp: "उनीहरूको योजनाहरू यथार्थवादी र प्राप्य छन् कि छैनन् जाँच गर्नुहोस्",
+          textHi: "देखें कि उनकी योजनाएँ वास्तविक और हासिल करने योग्य हैं या नहीं",
         },
       ],
     },
     {
       title: "Assess Their Integrity",
-      titleNp: "उनीहरूको इमान्दारिता मूल्याङ्कन गर्नुहोस्",
+      titleHi: "उनकी ईमानदारी/नैतिकता का आकलन करें",
       description: "Character matters as much as competence",
-      descriptionNp: "चरित्र क्षमता जत्तिकै महत्त्वपूर्ण छ",
+      descriptionHi: "चरित्र उतना ही महत्वपूर्ण है जितनी क्षमता",
       icon: <Shield className="w-6 h-6" />,
       items: [
         {
           id: "integrity-1",
           text: "Review their financial transparency and asset declarations",
-          textNp: "उनीहरूको वित्तीय पारदर्शिता र सम्पत्ति घोषणा समीक्षा गर्नुहोस्",
+          textHi: "उनकी वित्तीय पारदर्शिता और संपत्ति घोषणाओं की समीक्षा करें",
         },
         {
           id: "integrity-2",
           text: "Check for any criminal records or pending court cases",
-          textNp: "कुनै आपराधिक रेकर्ड वा विचाराधीन अदालती मुद्दाहरू जाँच गर्नुहोस्",
+          textHi: "किसी आपराधिक रिकॉर्ड या लंबित अदालती मामलों की जाँच करें",
         },
         {
           id: "integrity-3",
           text: "Look for potential conflicts of interest",
-          textNp: "सम्भावित स्वार्थको द्वन्द्व खोज्नुहोस्",
+          textHi: "हितों के संभावित टकराव की तलाश करें",
         },
         {
           id: "integrity-4",
           text: "Research their reputation in the community",
-          textNp: "समुदायमा उनीहरूको प्रतिष्ठा अनुसन्धान गर्नुहोस्",
+          textHi: "समुदाय में उनकी साख/प्रतिष्ठा के बारे में जानकारी लें",
         },
       ],
     },
     {
       title: "Question Their Funding",
-      titleNp: "उनीहरूको कोष प्रश्न गर्नुहोस्",
+      titleHi: "उनके फंडिंग स्रोतों पर सवाल करें",
       description: "Follow the money to understand their loyalties",
-      descriptionNp: "उनीहरूको वफादारी बुझ्न पैसा पछ्याउनुहोस्",
+      descriptionHi: "वफादारियाँ समझने के लिए पैसे का पीछा करें",
       icon: <DollarSign className="w-6 h-6" />,
       items: [
         {
           id: "funding-1",
           text: "Find out who is financing their campaign",
-          textNp: "उनीहरूको अभियानलाई कसले वित्त पोषण गरिरहेको छ पत्ता लगाउनुहोस्",
+          textHi: "पता करें कि उनके अभियान को कौन फंड कर रहा है",
         },
         {
           id: "funding-2",
           text: "Look for corporate or special interest connections",
-          textNp: "कर्पोरेट वा विशेष स्वार्थ सम्बन्धहरू खोज्नुहोस्",
+          textHi: "कॉरपोरेट या विशेष हित संबंध देखें",
         },
         {
           id: "funding-3",
           text: "Review their declaration of campaign expenses",
-          textNp: "उनीहरूको अभियान खर्चको घोषणा समीक्षा गर्नुहोस्",
+          textHi: "अभियान खर्च की उनकी घोषणाओं की समीक्षा करें",
         },
         {
           id: "funding-4",
           text: "Understand if funding sources align with public interest",
-          textNp: "कोष स्रोतहरू सार्वजनिक हितसँग मेल खान्छ कि खाँदैन बुझ्नुहोस्",
+          textHi: "समझें कि क्या फंडिंग के स्रोत सार्वजनिक हित से मेल खाते हैं",
         },
       ],
     },
     {
       title: "Measure Their Accessibility",
-      titleNp: "उनीहरूको पहुँच मापन गर्नुहोस्",
+      titleHi: "उनकी उपलब्धता/पहुँच को मापें",
       description: "A representative should be available to those they represent",
-      descriptionNp: "प्रतिनिधि उनीहरूले प्रतिनिधित्व गर्नेहरूका लागि उपलब्ध हुनुपर्छ",
+      descriptionHi: "एक प्रतिनिधि अपने मतदाताओं के लिए उपलब्ध होना चाहिए",
       icon: <Users className="w-6 h-6" />,
       items: [
         {
           id: "access-1",
           text: "Check if they hold regular public meetings",
-          textNp: "उनीहरूले नियमित सार्वजनिक बैठकहरू राख्छन् कि राख्दैनन् जाँच गर्नुहोस्",
+          textHi: "देखें क्या वे नियमित सार्वजनिक बैठकें करते हैं",
         },
         {
           id: "access-2",
           text: "Review their responsiveness to constituent concerns",
-          textNp: "घटक चिन्ताहरूप्रति उनीहरूको प्रतिक्रियाशीलता समीक्षा गर्नुहोस्",
+          textHi: "मतदाताओं की चिंताओं पर उनकी प्रतिक्रिया का आकलन करें",
         },
         {
           id: "access-3",
           text: "Assess their presence in the community (not just during elections)",
-          textNp: "समुदायमा उनीहरूको उपस्थिति मूल्याङ्कन गर्नुहोस् (चुनावको समयमा मात्र होइन)",
+          textHi: "समुदाय में उनकी उपस्थिति (सिर्फ चुनाव के समय नहीं) देखें",
         },
         {
           id: "access-4",
           text: "Look for multiple channels of communication (phone, email, social media)",
-          textNp: "सञ्चारका धेरै च्यानलहरू खोज्नुहोस् (फोन, इमेल, सामाजिक मिडिया)",
+          textHi: "संचार के कई माध्यम (फोन, ईमेल, सोशल मीडिया) देखें",
         },
       ],
     },
@@ -188,12 +188,12 @@ Candidate 3,,,,,,,
         {/* Header */}
         <div className="text-center space-y-4 animate-bloom">
           <h1 className="text-3xl md:text-5xl font-bold text-balance bg-gradient-to-r from-terracotta-600 via-ochre-600 to-forest-700 bg-clip-text text-transparent">
-            {t("Don't Just Vote—Vote Smart", "मात्र मतदान नगर्नुहोस्—स्मार्ट मतदान गर्नुहोस्")}
+            {t("Don't Just Vote—Vote Smart", "सिर्फ वोट न दें—समझदारी से वोट दें")}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t(
               "Use this comprehensive guide to evaluate candidates and make informed decisions that will impact your community for years to come.",
-              "उम्मेदवारहरूको मूल्याङ्कन गर्न र आगामी वर्षहरूमा तपाईंको समुदायलाई प्रभाव पार्ने सूचित निर्णयहरू गर्न यो व्यापक गाइड प्रयोग गर्नुहोस्।",
+              "उम्मीदवारों का मूल्यांकन करने और आने वाले वर्षों तक आपके समुदाय को प्रभावित करने वाले सूचित निर्णय लेने के लिए इस व्यापक मार्गदर्शिका का उपयोग करें।",
             )}
           </p>
         </div>
@@ -211,17 +211,17 @@ Candidate 3,,,,,,,
         <div className="bg-gradient-to-br from-ochre-50 to-cream-100 rounded-xl border border-ochre-200 shadow-md p-6 md:p-8 text-center space-y-4">
           <FileText className="w-12 h-12 text-ochre-600 mx-auto" />
           <h3 className="text-xl md:text-2xl font-bold">
-            {t("Compare Candidates Side-by-Side", "उम्मेदवारहरूलाई छेउछाउमा तुलना गर्नुहोस्")}
+            {t("Compare Candidates Side-by-Side", "उम्मीदवारों की तुलना साथ-साथ करें")}
           </h3>
           <p className="text-muted-foreground max-w-xl mx-auto">
             {t(
               "Download our comparison template to score and compare multiple candidates across all evaluation criteria.",
-              "सबै मूल्याङ्कन मापदण्डहरूमा धेरै उम्मेदवारहरूलाई स्कोर र तुलना गर्न हाम्रो तुलना टेम्प्लेट डाउनलोड गर्नुहोस्।",
+              "सभी मूल्यांकन मानदंडों पर कई उम्मीदवारों को स्कोर और तुलना करने के लिए हमारा तुलना टेम्पलेट डाउनलोड करें।",
             )}
           </p>
           <Button onClick={handleDownloadTemplate} size="lg" className="h-12 px-8 text-base">
             <Download className="mr-2 h-5 w-5" />
-            {t("Download Comparison Template", "तुलना टेम्प्लेट डाउनलोड गर्नुहोस्")}
+            {t("Download Comparison Template", "तुलना टेम्पलेट डाउनलोड करें")}
           </Button>
         </div>
 
@@ -230,12 +230,12 @@ Candidate 3,,,,,,,
           <Link href="/results">
             <Button variant="outline" className="h-12 px-6 bg-transparent">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              {t("Back to Results", "नतिजामा फर्कनुहोस्")}
+              {t("Back to Results", "परिणाम पर वापस जाएँ")}
             </Button>
           </Link>
           <Link href="/">
             <Button variant="outline" className="h-12 px-6 bg-transparent">
-              {t("Back to Home", "गृहपृष्ठमा फर्कनुहोस्")}
+              {t("Back to Home", "मुखपृष्ठ पर वापस जाएँ")}
             </Button>
           </Link>
         </div>

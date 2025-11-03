@@ -75,7 +75,7 @@ export function HeroSection() {
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight">
           <span className="bg-gradient-to-r from-terracotta-600 via-ochre-600 to-forest-700 bg-clip-text text-transparent">
-            {t("Know Your Vote's Worth", "आफ्नो मतको मूल्य जान्नुहोस्")}
+            {t("Know Your Vote's Worth", "अपने वोट की कीमत जानें")}
           </span>
         </h1>
 
@@ -84,19 +84,19 @@ export function HeroSection() {
           <p className="text-pretty">
             {t(
               "We won't tell you that by selling your vote you're selling your country or anything like that. We won't be giving you hollow provado. After all, people are what makes the nation, not the other way around.",
-              "हामी तपाईंलाई भन्दैनौं कि आफ्नो मत बेचेर तपाईं आफ्नो देश बेच्दै हुनुहुन्छ। हामी तपाईंलाई खोक्रो प्रवचन दिने छैनौं। आखिर, राष्ट्र बनाउने मानिसहरू हुन्, उल्टो होइन।",
+              "हम यह नहीं कहेंगे कि वोट बेचकर आप देश बेच रहे हैं या ऐसी कोई बात। हम आपको खोखले भाषण नहीं देंगे। आखिरकार, राष्ट्र को लोग बनाते हैं, उल्टा नहीं।",
             )}
           </p>
           <p className="text-pretty">
             {t(
               "So if you want to sell your vote, go ahead—it's your choice. We're here to help you do that. If you want to sell your vote, why not do it for the right price?",
-              "त्यसैले यदि तपाईं आफ्नो मत बेच्न चाहनुहुन्छ भने, अगाडि बढ्नुहोस्—यो तपाईंको छनौट हो। हामी तपाईंलाई त्यसो गर्न मद्दत गर्न यहाँ छौं। यदि तपाईं आफ्नो मत बेच्न चाहनुहुन्छ भने, किन सही मूल्यमा नबेच्ने?",
+              "तो अगर आप अपना वोट बेचना चाहते हैं, आगे बढ़ें—यह आपका निर्णय है। हम आपकी इसमें मदद करने के लिए हैं। अगर आप वोट बेचते ही हैं, तो सही कीमत पर क्यों नहीं?",
             )}
           </p>
           <p className="font-medium text-lg text-foreground">
             {t(
               "Enter your details and estimate the cost of your vote.",
-              "आफ्नो विवरण प्रविष्ट गर्नुहोस् र आफ्नो मतको लागत अनुमान गर्नुहोस्।",
+              "अपनी जानकारी दर्ज करें और अपने वोट की लागत का अनुमान लगाएं।",
             )}
           </p>
         </div>
@@ -108,7 +108,7 @@ export function HeroSection() {
               size="lg"
               className="text-lg px-8 py-6 h-auto bg-terracotta-500 hover:bg-terracotta-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
             >
-              {t("Calculate Your Real Cost", "आफ्नो वास्तविक लागत गणना गर्नुहोस्")}
+              {t("Calculate Your Real Cost", "अपनी वास्तविक लागत की गणना करें")}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
@@ -120,16 +120,16 @@ export function HeroSection() {
             <div className="text-3xl font-bold text-terracotta-600 devanagari-numerals">
               {t(citizensCount.toLocaleString(), citizensCount.toLocaleString())}
             </div>
-            <div className="text-sm text-muted-foreground mt-1">{t("Citizens Aware", "जागरूक नागरिकहरू")}</div>
+            <div className="text-sm text-muted-foreground mt-1">{t("Citizens Aware", "जागरूक नागरिक")}</div>
           </div>
           <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm">
             <div className="text-3xl font-bold text-ochre-600 devanagari-numerals">
-              {t(`Rs. ${lossesCount.toFixed(1)} Cr`, `रु. ${lossesCount.toFixed(1)} करोड`)}
+              {t(`Rs. ${lossesCount.toFixed(1)} Cr`, `रु. ${lossesCount.toFixed(1)} करोड़`)}
             </div>
             <div className="text-sm text-muted-foreground mt-1">{t("Total Losses Calculated", "कुल हानि गणना")}</div>
           </div>
           <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border shadow-sm">
-            <div className="text-3xl font-bold text-forest-600 devanagari-numerals">{t("7 Provinces", "७ प्रदेश")}</div>
+            <div className="text-3xl font-bold text-forest-600 devanagari-numerals">{t("28 States", "२८ राज्य")}</div>
             <div className="text-sm text-muted-foreground mt-1">{t("Nationwide Impact", "राष्ट्रव्यापी प्रभाव")}</div>
           </div>
         </div>
@@ -173,4 +173,5 @@ export function HeroSection() {
       </div>
     </section>
   )
+ 
 }

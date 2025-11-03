@@ -30,7 +30,7 @@ export function ImpactVisualization({ userCost, totalUsers, totalLosses }: Impac
     <div className="bg-card rounded-xl border border-border shadow-md p-6 space-y-6">
       <h3 className="text-xl font-bold flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-terracotta-600" />
-        {t("Your Potential Impact", "तपाईंको सम्भावित प्रभाव")}
+  {t("Your Potential Impact", "आपका संभावित प्रभाव")}
       </h3>
 
       <div className="space-y-4">
@@ -38,14 +38,14 @@ export function ImpactVisualization({ userCost, totalUsers, totalLosses }: Impac
         <div className="bg-gradient-to-r from-terracotta-50 to-ochre-50 rounded-lg p-6 border border-terracotta-200">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-muted-foreground">
-              {t("Vote wisely = save over 5 years", "बुद्धिमानीपूर्वक मतदान = ५ वर्षमा बचत")}
+              {t("Vote wisely = save over 5 years", "समझदारी से मतदान = 5 वर्षों में बचत")}
             </span>
           </div>
           <div className="text-3xl font-bold text-terracotta-700 devanagari-numerals">
             {formatCurrency(fiveYearSavings)}
           </div>
           <p className="text-xs text-muted-foreground mt-2">
-            {t("This is what better governance could save you", "यो राम्रो शासनले तपाईंलाई बचत गर्न सक्छ")}
+            {t("This is what better governance could save you", "बेहतर शासन से आप इतना बचा सकते हैं")}
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export function ImpactVisualization({ userCost, totalUsers, totalLosses }: Impac
             <div>
               <div className="text-sm font-medium text-muted-foreground">{t("Collective Impact", "सामूहिक प्रभाव")}</div>
               <div className="text-xs text-muted-foreground devanagari-numerals">
-                {t(`${totalUsers.toLocaleString()} citizens aware`, `${totalUsers.toLocaleString()} नागरिकहरू जागरूक`)}
+                {t(`${totalUsers.toLocaleString()} citizens aware`, `${totalUsers.toLocaleString()} नागरिक जागरूक`)}
               </div>
             </div>
           </div>
@@ -64,14 +64,14 @@ export function ImpactVisualization({ userCost, totalUsers, totalLosses }: Impac
             {t(`Rs. ${collectiveImpact} Crores`, `रु. ${collectiveImpact} करोड`)}
           </div>
           <p className="text-xs text-muted-foreground mt-2">
-            {t("Total governance cost calculated by our community", "हाम्रो समुदायद्वारा गणना गरिएको कुल शासन लागत")}
+            {t("Total governance cost calculated by our community", "हमारे समुदाय द्वारा गणना की गई कुल शासन लागत")}
           </p>
         </div>
 
         {/* Progress Bar */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">{t("Community Goal", "समुदाय लक्ष्य")}</span>
+            <span className="text-muted-foreground">{t("Community Goal", "समुदाय का लक्ष्य")}</span>
             <span className="font-medium devanagari-numerals">
               {totalUsers.toLocaleString()} / {t("50,000", "५०,०००")}
             </span>
@@ -83,7 +83,7 @@ export function ImpactVisualization({ userCost, totalUsers, totalLosses }: Impac
             />
           </div>
           <p className="text-xs text-muted-foreground">
-            {t("Help us reach 50,000 informed voters!", "हामीलाई ५०,००० सूचित मतदाताहरू पुग्न मद्दत गर्नुहोस्!")}
+            {t("Help us reach 50,000 informed voters!", "हमें 50,000 सूचित मतदाताओं तक पहुँचने में मदद करें!")}
           </p>
         </div>
       </div>

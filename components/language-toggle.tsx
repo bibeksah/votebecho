@@ -17,12 +17,12 @@ export function LanguageToggle() {
         EN
       </Button>
       <Button
-        variant={language === "np" ? "default" : "ghost"}
+        variant={language === "hi" ? "default" : "ghost"}
         size="sm"
-        onClick={() => setLanguage("np")}
+        onClick={() => setLanguage("hi")}
         className="text-xs font-medium px-3 py-1 h-auto"
       >
-        नेपाली
+        हिंदी
       </Button>
     </div>
   )

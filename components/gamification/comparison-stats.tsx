@@ -28,7 +28,7 @@ export function ComparisonStats({ userCost, averageCost, percentile, provinceRan
     <div className="bg-gradient-to-br from-forest-50 to-cream-100 rounded-xl border border-forest-200 shadow-md p-6 space-y-6">
       <h3 className="text-xl font-bold flex items-center gap-2">
         <TrendingUp className="w-5 h-5 text-forest-600" />
-        {t("How You Compare", "तपाईं कसरी तुलना गर्नुहुन्छ")}
+  {t("How You Compare", "आप कैसे तुलना करते हैं")}
       </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -44,7 +44,7 @@ export function ComparisonStats({ userCost, averageCost, percentile, provinceRan
         {/* Average Comparison */}
         <div className="bg-white/80 rounded-lg p-4 text-center">
           <div className="text-sm text-muted-foreground mb-1">
-            {t("Average for your demographic", "तपाईंको जनसांख्यिकीको औसत")}
+            {t("Average for your demographic", "आपकी जनसांख्यिकी का औसत")}
           </div>
           <div className="text-xl font-bold text-foreground devanagari-numerals">{formatCurrency(averageCost)}</div>
           <div className="text-xs mt-1">
@@ -52,14 +52,14 @@ export function ComparisonStats({ userCost, averageCost, percentile, provinceRan
               <span className="text-terracotta-600">
                 {t(
                   `${Math.round(((userCost - averageCost) / averageCost) * 100)}% above average`,
-                  `औसतभन्दा ${Math.round(((userCost - averageCost) / averageCost) * 100)}% माथि`,
+                  `औसत से ${Math.round(((userCost - averageCost) / averageCost) * 100)}% अधिक`,
                 )}
               </span>
             ) : (
               <span className="text-forest-600">
                 {t(
                   `${Math.round(((averageCost - userCost) / averageCost) * 100)}% below average`,
-                  `औसतभन्दा ${Math.round(((averageCost - userCost) / averageCost) * 100)}% तल`,
+                  `औसत से ${Math.round(((averageCost - userCost) / averageCost) * 100)}% कम`,
                 )}
               </span>
             )}
@@ -71,7 +71,7 @@ export function ComparisonStats({ userCost, averageCost, percentile, provinceRan
           <MapPin className="w-6 h-6 text-ochre-600 mx-auto mb-2" />
           <div className="text-2xl font-bold text-ochre-700 devanagari-numerals">#{provinceRank}</div>
           <p className="text-xs text-muted-foreground mt-1">
-            {t("Province governance impact rank", "प्रदेश शासन प्रभाव श्रेणी")}
+            {t("Province governance impact rank", "प्रदेश शासन प्रभाव रैंक")}
           </p>
         </div>
       </div>

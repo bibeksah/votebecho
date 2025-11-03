@@ -12,6 +12,7 @@ import { ComparisonStats } from "@/components/gamification/comparison-stats"
 import { ImpactVisualization } from "@/components/gamification/impact-visualization"
 import { SocialChallenge } from "@/components/gamification/social-challenge"
 import { ShareCardGenerator } from "@/components/results/share-card-generator"
+import SellMyVoteButton from "@/components/results/sell-my-vote-button"
 import type { CalculationResult } from "@/types/survey"
 
 export default function ResultsPage() {
@@ -61,14 +62,14 @@ export default function ResultsPage() {
     if (!result) return
 
     const shareText = t(
-      `Bad governance cost me Rs. ${result.totalCost.toLocaleString()} last year. Calculate yours at sellmyvote.nepalreforms.com #KnowYourVoteWorth`,
-      `खराब शासनले मलाई गत वर्ष रु. ${result.totalCost.toLocaleString()} खर्च गर्यो। sellmyvote.nepalreforms.com मा आफ्नो गणना गर्नुहोस् #KnowYourVoteWorth`,
+      `Bad governance cost me Rs. ${result.totalCost.toLocaleString()} last year. Calculate yours at votebecho.com #KnowYourVoteWorth`,
+      `खराब शासन ने मुझे पिछले साल रु. ${result.totalCost.toLocaleString()} का नुकसान कराया। अपना हिसाब votebecho.com पर करें #KnowYourVoteWorth`,
     )
 
     if (navigator.share) {
       try {
         await navigator.share({
-          title: t("Know Your Vote's Worth", "आफ्नो मतको मूल्य जान्नुहोस्"),
+          title: t("Know Your Vote's Worth", "अपने वोट की कीमत जानें"),
           text: shareText,
           url: window.location.origin,
         })
@@ -79,7 +80,7 @@ export default function ResultsPage() {
       }
     } else {
       await navigator.clipboard.writeText(shareText)
-      alert(t("Link copied to clipboard!", "लिङ्क क्लिपबोर्डमा प्रतिलिपि गरियो!"))
+  alert(t("Link copied to clipboard!", "लिंक क्लिपबोर्ड पर कॉपी हो गया!"))
       localStorage.setItem("hasShared", "true")
       setHasShared(true)
     }
@@ -116,10 +117,10 @@ export default function ResultsPage() {
         {/* Page Title */}
         <div className="text-center space-y-2 animate-bloom">
           <h1 className="text-3xl md:text-5xl font-bold text-balance bg-gradient-to-r from-terracotta-600 via-ochre-600 to-forest-700 bg-clip-text text-transparent">
-            {t("Your Governance Cost Report", "तपाईंको शासन लागत रिपोर्ट")}
+            {t("Your Governance Cost Report", "आपकी शासन लागत रिपोर्ट")}
           </h1>
           <p className="text-muted-foreground">
-            {t("Based on your profile and last year's data", "तपाईंको प्रोफाइल र गत वर्षको डेटामा आधारित")}
+            {t("Based on your profile and last year's data", "आपकी प्रोफ़ाइल और पिछले वर्ष के डेटा पर आधारित")}
           </p>
         </div>
 
@@ -131,28 +132,21 @@ export default function ResultsPage() {
 
         {/* Total Cost */}
         <TotalCostCard totalCost={result.totalCost} />
-
-        {/* Badges */}
-        <BadgeDisplay badges={badges} />
-
-        {/* Comparison Stats */}
-        <ComparisonStats
-          userCost={result.totalCost}
-          averageCost={mockAverageCost}
-          percentile={mockPercentile}
-          provinceRank={mockProvinceRank}
-        />
+        <SellMyVoteButton />
 
         {/* Impact Visualization */}
         <ImpactVisualization userCost={result.totalCost} totalUsers={mockTotalUsers} totalLosses={mockTotalLosses} />
 
+        {/* Badges */}
+        <BadgeDisplay badges={badges} />
+        
         {/* Social Challenge */}
         <SocialChallenge referralCode={referralCode} friendsReferred={friendsReferred} />
 
         {/* Share Your Results */}
         <div className="card-newari">
           <h2 className="text-2xl font-bold text-center text-forest-700">
-            {t("Share Your Results", "आफ्नो नतिजा साझा गर्नुहोस्")}
+            {t("Share Your Results", "अपना परिणाम साझा करें")}
           </h2>
           <ShareCardGenerator
             totalCost={result.totalCost}
@@ -170,7 +164,7 @@ export default function ResultsPage() {
             onClick={() => router.push("/")}
             className="text-sm text-muted-foreground hover:text-foreground underline"
           >
-            {t("Back to Home", "गृहपृष्ठमा फर्कनुहोस्")}
+            {t("Back to Home", "मुखपृष्ठ पर वापस जाएँ")}
           </button>
         </div>
       </div>

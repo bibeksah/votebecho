@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { useLanguage } from "@/lib/language-context"
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink, Menu, Home, Calculator, ClipboardCheck } from "lucide-react"
+import { ExternalLink, Menu, Home, Calculator, ClipboardCheck, BarChart3, Info } from "lucide-react"
 import { useState } from "react"
 
 export function SiteHeader() {
@@ -16,8 +16,18 @@ export function SiteHeader() {
   const navLinks = [
     {
       href: "/evaluate",
-      label: t("Evaluate Candidates", "उम्मेदवारहरू मूल्याङ्कन गर्नुहोस्"),
+      label: t("Evaluate Candidates", "उम्मीदवारों का मूल्यांकन करें"),
       icon: <ClipboardCheck className="w-4 h-4" />,
+    },
+    {
+      href: "/results",
+      label: t("View Results", "परिणामहरू हेर्नुहोस्"),
+      icon: <BarChart3 className="w-4 h-4" />,
+    },
+    {
+      href: "/about",
+      label: t("About", "बारेमा"),
+      icon: <Info className="w-4 h-4" />,
     },
   ]
 
@@ -27,7 +37,7 @@ export function SiteHeader() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <Image src="/images/nrlogo12.png" alt="Nepal Reforms" width={40} height={40} className="w-10 h-10" />
-          <span className="font-semibold text-lg hidden sm:inline">NepalReforms</span>
+          <span className="font-semibold text-lg hidden sm:inline">Vote Becho</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -46,12 +56,6 @@ export function SiteHeader() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          <Button asChild variant="outline" size="sm" className="flex items-center gap-2 bg-transparent">
-            <a href="https://nepalreforms.com" target="_blank" rel="noopener noreferrer">
-              {t("Visit NepalReforms", "NepalReforms भ्रमण गर्नुहोस्")}
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </Button>
           <LanguageToggle />
         </div>
 
@@ -62,12 +66,12 @@ export function SiteHeader() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">{t("Open menu", "मेनु खोल्नुहोस्")}</span>
+                <span className="sr-only">{t("Open menu", "मेनू खोलें")}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <SheetHeader>
-                <SheetTitle className="text-left">{t("Navigation", "नेभिगेसन")}</SheetTitle>
+                <SheetTitle className="text-left">{t("Navigation", "नेविगेशन")}</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col gap-4 mt-8">
                 {/* Navigation Links */}
@@ -88,7 +92,7 @@ export function SiteHeader() {
                   <Button asChild variant="outline" className="w-full justify-start gap-3 bg-transparent">
                     <a href="https://nepalreforms.com" target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4" />
-                      {t("Visit NepalReforms", "NepalReforms भ्रमण गर्नुहोस्")}
+                      {t("Visit NepalReforms", "NepalReforms पर जाएँ")}
                     </a>
                   </Button>
                 </div>

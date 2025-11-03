@@ -32,47 +32,47 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
     setError("")
   }, [value, question.id])
 
-  const questionText = language === "np" ? question.questionNp : question.question
-  const placeholderText = language === "np" ? question.placeholderNp || question.placeholder : question.placeholder
+  const questionText = language === "hi" ? question.questionHi : question.question
+  const placeholderText = language === "hi" ? question.placeholderHi || question.placeholder : question.placeholder
 
   const validate = () => {
     if (question.validation?.required) {
       if (question.type === "text") {
         if (!localValue || localValue.trim() === "") {
-          setError(t("This field is required", "यो क्षेत्र आवश्यक छ"))
+          setError(t("This field is required", "यह फ़ील्ड आवश्यक है"))
           return false
         }
       } else if (question.type === "multiselect") {
         if (!localValue || localValue.length === 0) {
-          setError(t("Please select at least one option", "कृपया कम्तिमा एउटा विकल्प चयन गर्नुहोस्"))
+          setError(t("Please select at least one option", "कृपया कम से कम एक विकल्प चुनें"))
           return false
         }
         if (question.hasOtherOption && Array.isArray(localValue) && localValue.includes(question.otherOptionValue)) {
           if (!otherText || otherText.trim() === "") {
-            setError(t("Please specify 'Other'", "कृपया 'अन्य' निर्दिष्ट गर्नुहोस्"))
+            setError(t("Please specify 'Other'", "कृपया 'अन्य' निर्दिष्ट करें"))
             return false
           }
         }
       } else if (question.type === "nested") {
         if (question.id === "region") {
           if (!localValue?.province || !localValue?.municipality) {
-            setError(t("Please complete all fields", "कृपया सबै क्षेत्रहरू पूरा गर्नुहोस्"))
+            setError(t("Please complete all fields", "कृपया सभी फ़ील्ड भरें"))
             return false
           }
         } else if (question.id === "healthcareExpenses") {
           if (localValue?.hadExpenses === undefined) {
-            setError(t("Please answer the question", "कृपया प्रश्नको जवाफ दिनुहोस्"))
+            setError(t("Please answer the question", "कृपया प्रश्न का उत्तर दें"))
             return false
           }
         }
       } else if (!localValue && localValue !== 0) {
-        setError(t("This field is required", "यो क्षेत्र आवश्यक छ"))
+  setError(t("This field is required", "यह फ़ील्ड आवश्यक है"))
         return false
       }
 
       if (question.type === "dropdown" && question.hasOtherOption && localValue === question.otherOptionValue) {
         if (!otherText || otherText.trim() === "") {
-          setError(t("Please specify 'Other'", "कृपया 'अन्य' निर्दिष्ट गर्नुहोस्"))
+          setError(t("Please specify 'Other'", "कृपया 'अन्य' निर्दिष्ट करें"))
           return false
         }
       }
@@ -81,11 +81,11 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
     if (question.type === "number" && localValue) {
       const num = Number(localValue)
       if (question.validation?.min !== undefined && num < question.validation.min) {
-        setError(t(`Minimum value is ${question.validation.min}`, `न्यूनतम मान ${question.validation.min} हो`))
+  setError(t(`Minimum value is ${question.validation.min}`, `न्यूनतम मान ${question.validation.min} है`))
         return false
       }
       if (question.validation?.max !== undefined && num > question.validation.max) {
-        setError(t(`Maximum value is ${question.validation.max}`, `अधिकतम मान ${question.validation.max} हो`))
+  setError(t(`Maximum value is ${question.validation.max}`, `अधिकतम मान ${question.validation.max} है`))
         return false
       }
     }
@@ -146,12 +146,12 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
           <div className="space-y-4">
             <Select value={localValue || undefined} onValueChange={setLocalValue}>
               <SelectTrigger className="text-lg h-14">
-                <SelectValue placeholder={t("Select one", "एउटा चयन गर्नुहोस्")} />
+                <SelectValue placeholder={t("Select one", "एक चुनें")} />
               </SelectTrigger>
               <SelectContent>
                 {question.options?.map((option) => (
                   <SelectItem key={option.value} value={option.value} className="text-base">
-                    {language === "np" ? option.labelNp || option.label : option.label}
+                    {language === "hi" ? option.labelHi || option.label : option.label}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -162,7 +162,7 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
                   type="text"
                   value={otherText}
                   onChange={(e) => setOtherText(e.target.value)}
-                  placeholder={t("Please specify", "कृपया निर्दिष्ट गर्नुहोस्")}
+                  placeholder={t("Please specify", "कृपया निर्दिष्ट करें")}
                   className="text-lg h-14"
                 />
               </div>
@@ -190,7 +190,7 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
                     }}
                   />
                   <Label htmlFor={option.value} className="text-base cursor-pointer flex-1 leading-relaxed">
-                    {language === "np" ? option.labelNp || option.label : option.label}
+                    {language === "hi" ? option.labelHi || option.label : option.label}
                   </Label>
                 </div>
               )
@@ -203,7 +203,7 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
                     type="text"
                     value={otherText}
                     onChange={(e) => setOtherText(e.target.value)}
-                    placeholder={t("Please specify", "कृपया निर्दिष्ट गर्नुहोस्")}
+                    placeholder={t("Please specify", "कृपया निर्दिष्ट करें")}
                     className="text-lg h-14"
                   />
                 </div>
@@ -215,8 +215,8 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
         return (
           <div className="space-y-4">
             <div className="flex justify-between text-sm text-muted-foreground px-2">
-              <span>{t("Not at all", "बिल्कुल होइन")}</span>
-              <span>{t("Severely", "गम्भीर रूपमा")}</span>
+              <span>{t("Not at all", "बिल्कुल नहीं")}</span>
+              <span>{t("Severely", "गंभीर रूप से")}</span>
             </div>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5].map((num) => (
@@ -242,30 +242,30 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
           return (
             <div className="space-y-4">
               <div>
-                <Label className="text-base mb-2 block">{t("Province", "प्रदेश")}</Label>
+                <Label className="text-base mb-2 block">{t("State", "राज्य")}</Label>
                 <Select
                   value={localValue?.province || undefined}
                   onValueChange={(val) => setLocalValue({ ...localValue, province: val, municipality: "" })}
                 >
                   <SelectTrigger className="text-lg h-14">
-                    <SelectValue placeholder={t("Select one", "एउटा चयन गर्नुहोस्")} />
+                    <SelectValue placeholder={t("Select one", "एक चुनें")} />
                   </SelectTrigger>
                   <SelectContent>
                     {question.options?.map((option) => (
                       <SelectItem key={option.value} value={option.value} className="text-base">
-                        {language === "np" ? option.labelNp || option.label : option.label}
+                        {language === "hi" ? option.labelHi || option.label : option.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
               <div>
-                <Label className="text-base mb-2 block">{t("Municipality", "नगरपालिका")}</Label>
+                <Label className="text-base mb-2 block">{t("District", "जिला")}</Label>
                 <Input
                   type="text"
                   value={localValue?.municipality || ""}
                   onChange={(e) => setLocalValue({ ...localValue, municipality: e.target.value })}
-                  placeholder={t("Enter municipality name", "नगरपालिकाको नाम प्रविष्ट गर्नुहोस्")}
+                  placeholder={t("Enter district name", "जिले का नाम दर्ज करें")}
                   className="text-lg h-14"
                 />
               </div>
@@ -281,7 +281,7 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
                   className="flex-1 h-14 text-base"
                   onClick={() => setLocalValue({ hadExpenses: true, amount: localValue?.amount || 0 })}
                 >
-                  {t("Yes", "हो")}
+                  {t("Yes", "हाँ")}
                 </Button>
                 <Button
                   type="button"
@@ -289,19 +289,19 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
                   className="flex-1 h-14 text-base"
                   onClick={() => setLocalValue({ hadExpenses: false, amount: 0 })}
                 >
-                  {t("No", "होइन")}
+                  {t("No", "नहीं")}
                 </Button>
               </div>
               {localValue?.hadExpenses && (
                 <div className="animate-bloom">
-                  <Label className="text-base mb-2 block">{t("Approximate amount (Rs.)", "अनुमानित रकम (रु.)")}</Label>
+                  <Label className="text-base mb-2 block">{t("Approximate amount (Rs.)", "अनुमानित राशि (रु.)")}</Label>
                   <Input
                     type="number"
                     value={localValue?.amount || ""}
                     onChange={(e) =>
                       setLocalValue({ ...localValue, amount: e.target.value ? Number(e.target.value) : 0 })
                     }
-                    placeholder={t("Enter amount", "रकम प्रविष्ट गर्नुहोस्")}
+                    placeholder={t("Enter amount", "राशि दर्ज करें")}
                     className="text-lg h-14"
                     min={0}
                   />
@@ -341,11 +341,11 @@ export function QuestionCard({ question, value, onChange, onNext, onBack, canGoB
           {canGoBack && (
             <Button type="button" variant="outline" onClick={onBack} className="h-12 px-6 bg-transparent">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              {t("Back", "पछाडि")}
+              {t("Back", "वापस")}
             </Button>
           )}
           <Button type="button" onClick={handleNext} className="flex-1 h-12 text-base">
-            {isLast ? t("Calculate", "गणना गर्नुहोस्") : t("Next", "अर्को")}
+            {isLast ? t("Calculate", "गणना करें") : t("Next", "आगे")}
             {!isLast && <ArrowRight className="ml-2 h-4 w-4" />}
           </Button>
         </div>

@@ -20,19 +20,19 @@ export function FinalMessageCard({ totalCost, onShare, onCalculateAgain }: Final
         <p className="text-pretty">
           {t(
             `If you still want to sell your vote, at least recover all the money you lost due to bad governance last year.`,
-            `यदि तपाईं अझै पनि आफ्नो मत बेच्न चाहनुहुन्छ भने, कम्तिमा गत वर्ष खराब शासनका कारण हराएको सबै पैसा फिर्ता लिनुहोस्।`,
+            `अगर आप फिर भी अपना वोट बेचना चाहते हैं, तो कम से कम पिछले साल खराब शासन के कारण खोए हुए सारे पैसे वापस वसूल लें।`,
           )}
         </p>
         <p className="text-pretty font-medium">
           {t(
             "But ask yourself: If you sell your vote for Rs. 500 or Rs. 1,000, who's really profiting?",
-            "तर आफैलाई सोध्नुहोस्: यदि तपाईंले आफ्नो मत रु. ५०० वा रु. १,००० मा बेच्नुभयो भने, वास्तवमा कसले लाभ लिइरहेको छ?",
+            "लेकिन खुद से पूछें: अगर आप अपना वोट रु. 500 या रु. 1,000 में बेचते हैं, तो असल में फायदा किसका हो रहा है?",
           )}
         </p>
         <p className="text-pretty text-lg font-semibold text-forest-700">
           {t(
             "Your vote is worth more than money—it's your power to demand accountability, better services, and real change.",
-            "तपाईंको मत पैसाभन्दा बढी मूल्यवान छ—यो जवाफदेहिता, राम्रो सेवा र वास्तविक परिवर्तनको माग गर्ने तपाईंको शक्ति हो।",
+            "आपका वोट पैसों से अधिक मूल्यवान है—यह जवाबदेही, बेहतर सेवाएँ और वास्तविक बदलाव की मांग करने की आपकी शक्ति है।",
           )}
         </p>
       </div>
@@ -41,16 +41,16 @@ export function FinalMessageCard({ totalCost, onShare, onCalculateAgain }: Final
         <Link href="/evaluate" className="flex-1">
           <Button className="w-full h-12 text-base bg-forest-600 hover:bg-forest-700">
             <BookOpen className="mr-2 h-5 w-5" />
-            {t("Learn How to Evaluate Candidates", "उम्मेदवारहरूको मूल्याङ्कन गर्न सिक्नुहोस्")}
+            {t("Learn How to Evaluate Candidates", "उम्मीदवारों का मूल्यांकन करना सीखें")}
           </Button>
         </Link>
         <Button variant="outline" onClick={onShare} className="flex-1 h-12 text-base bg-transparent">
           <Share2 className="mr-2 h-5 w-5" />
-          {t("Share My Results", "मेरो नतिजा साझा गर्नुहोस्")}
+          {t("Share My Results", "मेरा परिणाम साझा करें")}
         </Button>
         <Button variant="outline" onClick={onCalculateAgain} className="h-12 text-base bg-transparent">
           <RotateCcw className="mr-2 h-5 w-5" />
-          {t("Calculate Again", "फेरि गणना गर्नुहोस्")}
+          {t("Calculate Again", "फिर से गणना करें")}
         </Button>
       </div>
     </div>

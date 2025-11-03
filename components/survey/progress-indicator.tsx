@@ -15,7 +15,7 @@ export function ProgressIndicator({ current, total }: ProgressIndicatorProps) {
     <div className="w-full space-y-2">
       <div className="flex items-center justify-between text-sm text-muted-foreground">
         <span className="devanagari-numerals">
-          {t(`Question ${current} of ${total}`, `प्रश्न ${current} को ${total}`)}
+          {t(`Question ${current} of ${total}`, `प्रश्न ${current} में से ${total}`)}
         </span>
         <span className="devanagari-numerals">{Math.round(percentage)}%</span>
       </div>

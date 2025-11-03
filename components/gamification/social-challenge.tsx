@@ -29,13 +29,13 @@ export function SocialChallenge({ referralCode, friendsReferred }: SocialChallen
   const handleShare = async () => {
     const shareText = t(
       "I just discovered how much bad governance costs me. Calculate your own governance cost!",
-      "मैले भर्खरै पत्ता लगाएँ कि खराब शासनले मलाई कति खर्च गर्छ। आफ्नो शासन लागत गणना गर्नुहोस्!",
+      "मैंने अभी पता लगाया कि खराब शासन मुझे कितना खर्च कराता है। अपना शासन लागत गणना करें!",
     )
 
     if (navigator.share) {
       try {
         await navigator.share({
-          title: t("Know Your Vote's Worth", "आफ्नो मतको मूल्य जान्नुहोस्"),
+          title: t("Know Your Vote's Worth", "अपने वोट की कीमत जानें"),
           text: shareText,
           url: referralLink,
         })
@@ -54,11 +54,11 @@ export function SocialChallenge({ referralCode, friendsReferred }: SocialChallen
           <Share2 className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-lg font-bold">{t("Challenge Your Friends", "आफ्ना साथीहरूलाई चुनौती दिनुहोस्")}</h3>
+          <h3 className="text-lg font-bold">{t("Challenge Your Friends", "अपने दोस्तों को चुनौती दें")}</h3>
           <p className="text-sm text-muted-foreground devanagari-numerals">
             {t(
               `You've helped ${friendsReferred} friends become aware`,
-              `तपाईं���े ${friendsReferred} साथीहरूलाई जागरूक बनाउन मद्दत गर्नुभयो`,
+              `आपने ${friendsReferred} दोस्तों को जागरूक बनने में मदद की है`,
             )}
           </p>
         </div>
@@ -67,14 +67,14 @@ export function SocialChallenge({ referralCode, friendsReferred }: SocialChallen
       <p className="text-sm text-foreground/80">
         {t(
           "Share your unique link and help 3 friends discover their governance cost. Together, we can build a more informed electorate.",
-          "आफ्नो अद्वितीय लिङ्क साझा गर्नुहोस् र ३ साथीहरूलाई उनीहरूको शासन लागत पत्ता लगाउन मद्दत गर्नुहोस्। सँगै, हामी थप सूचित मतदाता निर्माण गर्न सक्छौं।",
+          "अपना विशेष लिंक साझा करें और 3 दोस्तों को उनकी शासन लागत जानने में मदद करें। मिलकर, हम अधिक सूचित मतदाता बना सकते हैं।",
         )}
       </p>
 
       <div className="flex gap-2">
         <Button onClick={handleShare} className="flex-1 h-10">
           <Share2 className="mr-2 h-4 w-4" />
-          {t("Share Link", "लिङ्क साझा गर्नुहोस्")}
+          {t("Share Link", "लिंक साझा करें")}
         </Button>
         <Button onClick={handleCopyLink} variant="outline" className="h-10 px-4 bg-transparent">
           {copied ? <Check className="h-4 w-4 text-forest-600" /> : <Copy className="h-4 w-4" />}
